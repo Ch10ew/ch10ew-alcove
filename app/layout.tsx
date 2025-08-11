@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Red_Hat_Text, Red_Hat_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import {
+  METADATA_DEFAULT_DESCRIPTION,
+  METADATA_DEFAULT_TITLE,
+} from "@/lib/constants";
 
 const redHatText = Red_Hat_Text({
   variable: "--font-red-hat-text",
@@ -14,8 +18,8 @@ const redHatMono = Red_Hat_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Blog",
-  description: "Blog",
+  title: METADATA_DEFAULT_TITLE,
+  description: METADATA_DEFAULT_DESCRIPTION,
 };
 
 export default function RootLayout({

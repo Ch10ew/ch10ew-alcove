@@ -1,7 +1,11 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { compileMDX } from "next-mdx-remote/rsc";
-import { PAGES_DIR } from "@/lib/constants";
+import {
+  METADATA_DEFAULT_DESCRIPTION,
+  METADATA_DEFAULT_TITLE,
+  PAGES_DIR,
+} from "@/lib/constants";
 import { findFileBySlug, getAllMDXFiles } from "@/lib/mdx-loader";
 import { slugifyFilePath } from "@/lib/slugify";
 import { notFound } from "next/navigation";
@@ -48,7 +52,8 @@ export async function generateMetadata({ params }: { params: Params }) {
   const fallbackTitle = getFallbackTitle(filepath);
 
   return {
-    title: frontmatter?.title || fallbackTitle,
+    title: METADATA_DEFAULT_TITLE + " - " + frontmatter?.title || fallbackTitle,
+    description: frontmatter?.description || METADATA_DEFAULT_DESCRIPTION,
   };
 }
 
