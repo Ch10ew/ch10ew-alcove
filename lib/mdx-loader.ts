@@ -6,10 +6,10 @@ import { slugifyFilePath } from "./slugify";
  * Recursively gets all .mdx files from a given directory.
  */
 export async function getAllMDXFiles(dir: string): Promise<string[]> {
-  const dirents = await fs.readdir(dir, { withFileTypes: true });
+  const directoryEntries = await fs.readdir(dir, { withFileTypes: true });
 
   const files = await Promise.all(
-    dirents.map(async (dirent) => {
+    directoryEntries.map(async (dirent) => {
       const res = path.resolve(dir, dirent.name);
       if (dirent.isDirectory()) {
         return getAllMDXFiles(res); // recurse into subdir
