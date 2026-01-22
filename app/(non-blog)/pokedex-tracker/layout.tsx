@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Red_Hat_Text, Red_Hat_Mono } from "next/font/google";
-import "./globals.css";
-import Navbar from "@/components/Navbar";
+import "./../../globals.css";
 import {
   METADATA_DEFAULT_DESCRIPTION,
   METADATA_DEFAULT_TITLE,
@@ -32,7 +31,7 @@ export default function RootLayout({
       <body
         className={`${redHatText.variable} ${redHatMono.variable} antialiased`}
       >
-        {children}
+        <div className="flex justify-center">{children}</div>
       </body>
     </html>
   );
