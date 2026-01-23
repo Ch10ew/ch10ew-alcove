@@ -15,6 +15,7 @@ import rehypeUnwrapImages from "rehype-unwrap-images";
 import { Frontmatter } from "@/lib/types";
 import { cn } from "@/lib/util";
 import ImageDownsampler from "@/components/ImageDownsampler";
+import WordlePixelArtCreator from "@/components/WordlePixelArtCreator";
 
 type Params = Promise<{ slug: string[] }>;
 
@@ -33,7 +34,7 @@ export async function generateMetadata({ params }: { params: Params }) {
 
   const filepath = await findFileBySlug(
     slug,
-    path.join(process.cwd(), PAGES_DIR)
+    path.join(process.cwd(), PAGES_DIR),
   );
 
   if (!filepath) {
@@ -61,7 +62,7 @@ export default async function Page({ params }: { params: Params }) {
   const { slug } = await params;
   const filepath = await findFileBySlug(
     slug,
-    path.join(process.cwd(), PAGES_DIR)
+    path.join(process.cwd(), PAGES_DIR),
   );
 
   if (!filepath) {
@@ -83,6 +84,7 @@ export default async function Page({ params }: { params: Params }) {
       components: {
         // Load components used by MDX pages here
         ImageDownsampler,
+        WordlePixelArtCreator,
       },
     });
 
@@ -100,7 +102,7 @@ export default async function Page({ params }: { params: Params }) {
       <h1
         className={cn(
           "mx-auto max-w-3xl font-bold text-5xl",
-          date ? "mb-4" : "mb-8"
+          date ? "mb-4" : "mb-8",
         )}
       >
         {title}
