@@ -220,7 +220,7 @@ export default function WordlePixelArtCreator() {
           Reset Grid
         </button>
         {grid.map((row: [number, number, number, number, number], rowIndex) => (
-          <div key={rowIndex} className="border-0 m-0 p-0 h-18">
+          <div key={rowIndex} className="border-0 m-0 p-0 h-15">
             {row.map((item: number, columnIndex) => (
               <button
                 key={columnIndex}
@@ -230,7 +230,7 @@ export default function WordlePixelArtCreator() {
                 className={cn(
                   "border-gray-400 font-extrabold text-2xl",
                   "text-shadow-sm text-shadow-neutral-500",
-                  "size-18 border-2 rounded-md",
+                  "size-15 border-2 rounded-md",
                   "transition-colors transition-300",
                   item === 0
                     ? "bg-card"
